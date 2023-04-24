@@ -1,8 +1,8 @@
-.sidebar{
+.sidebar {
   text-align: center;
   padding: 20px;
-
 }
+
 .wrapper {
   margin-top: 3%;
   display: flex;
@@ -12,12 +12,12 @@
 }
 
 .box {
-  padding:20px;
+  padding: 20px;
   width: 50vw;
   background: rgb(238, 238, 238);
-  box-shadow: 4px 4px 10px rgba(0,0,0,.3);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, .3);
 }
 
-.font-vinho{
+.font-vinho {
   color: #A24D52;
 }

@@ -32,7 +32,7 @@
           <h2>Logar</h2>
           <p>Que bom ter você de volta.</p>
           <hr>
-          <form action="{% url 'login' %}" method="POST">{% csrf_token %}
+          <form action="{% url 'user_login' %}" method="POST">{% csrf_token %}
             <span>Nome:</span>
             <input type="text" class="form-control" placeholder="Digite seu nome..." name="nome">
             <br>
@@ -41,7 +41,7 @@
             <input type="password" class="form-control" placeholder="Digite sua senha..." name="senha">
 
 
-            <input type="submit" value="SALVAR" class="btn-custom-primary">
+            <input type="submit" value="ENTRAR" class="btn-custom-primary" >
 
             <a href="/auth/cadastro/" class="link-float">Cadastre-se</a>
           </form>

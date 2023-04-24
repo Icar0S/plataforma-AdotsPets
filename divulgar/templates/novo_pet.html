@@ -6,6 +6,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cadastro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="{% static 'usuarios/css/cadastro.css' %}" rel="stylesheet">
   <link href="{% static 'divulgar/css/novo_pet.css' %}" rel="stylesheet">
@@ -16,11 +19,48 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-2 bg-side sidebar" style="height: 140vh">
+      <div class="col-md-2 bg-side sidebar" style="height: 140vh; width:250px">
         <h2>iDO.PT</h2>
         <hr>
-
-
+        <ul class="list-group list-group-flush" >
+          <li class="list-group-item" 
+          style="background-color: #391D34; color: #fff; font-family: Montserrat, sans-serif; margin-bottom: 20px; margin-top: 20px; ">
+              <a class="nav-link" href="{% url 'novo_pet' %}">
+                  Criar novo Pet
+              </a>
+          </li>
+          <li class="list-group-item"
+          style="background-color: #391D34; color: #fff; font-family: Montserrat, sans-serif; margin-bottom: 20px; margin-top: 20px; ">
+              <a class="nav-link" href="{% url 'seus_pets' %}">
+                  Gerenciar seus Pets
+              </a>
+          </li>
+          <li class="list-group-item"
+          style="background-color: #391D34; color: #fff; font-family: Montserrat, sans-serif; margin-bottom: 20px; margin-top: 20px; ">
+              <a class="nav-link" href="{% url 'dashboard'%}">
+                  Meus Dashboards
+              </a>
+          </li>
+          <li class="list-group-item"
+          style="background-color: #391D34; color: #fff; font-family: Montserrat, sans-serif; margin-bottom: 20px; margin-top: 20px; ">
+              <a class="nav-link" href="{% url 'dashboard'%}">
+                  Dashbaords Gerais
+              </a>
+          </li>
+        </ul>
+        <hr>
+        <li class="list-group-item"
+          style="background-color: #391D34; color: #fff; font-family: Montserrat, sans-serif; margin-bottom: 20px; margin-top: 20px; ">
+              <a class="nav-link" href="{% url 'listar_pets'%}">
+                  Lista de Pets
+              </a>
+          </li>
+        <li class="list-group-item"
+          style="background-color: #391D34; color: #fff; font-family: Montserrat, sans-serif; margin-bottom: 20px; margin-top: 20px; ">
+              <a class="nav-link" href="{% url 'exit'%}">
+                  Logout
+              </a>
+          </li>
       </div>
 
       <div class="col-md">

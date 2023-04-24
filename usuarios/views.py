@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.messages import constants
@@ -17,7 +16,6 @@ def cadastro(request):
         senha = request.POST.get('senha')
         confirmar_senha = request.POST.get('confirmar_senha')
 
-
         if len(nome.strip()) == 0 or len(email.strip()) == 0 or len(senha.strip()) == 0 or len(confirmar_senha.strip()) == 0:
           messages.add_message(request, constants.ERROR, 'Preencha todos os campos.')
           return render(request, 'cadastro.html')
@@ -27,20 +25,20 @@ def cadastro(request):
           return render(request, 'cadastro.html')
 
         try:
-            user = User.objects.create_user(
+          user = User.objects.create_user(
                 username=nome,
                 email=email,
                 password=senha,
-            )
-            messages.add_message(request, constants.SUCCESS, 'Usuário cadastrado com sucesso!')
-            return render(request, 'cadastro.html')
+          )
+          messages.add_message(request, constants.SUCCESS, 'Usuário cadastrado com sucesso!')
+          return render(request, 'cadastro.html')
         except:
           messages.add_message(request, constants.ERROR, 'Erro interno do sistema. Tente novamente mais tarde.')
           return render(request, 'cadastro.html')
 
 
 
-def login(request):
+def user_login(request):
   if request.user.is_authenticated:
     return redirect('/divulgar/novo_pet')
   if request.method == "GET":
@@ -53,6 +51,7 @@ def login(request):
   if user is not None:
     login(request, user)
     return redirect('/divulgar/novo_pet')
+  
   else:
     messages.add_message(request, constants.ERROR, 'Usuário ou senha inválidos')
     return render(request, 'login.html')
