@@ -13,14 +13,19 @@ def listar_pets(request):
       racas = Raca.objects.all()
 
       cidade = request.GET.get('cidade')
-      raca_filter = request.GET.get('raca')
+      raca_filter = request.GET.get('raca', None)
 
       if cidade:
           pets = pets.filter(cidade__icontains=cidade)
-
-      if raca_filter:
-          pets = pets.filter(raca__id=raca_filter)
-          raca_filter = Raca.objects.get(id=raca_filter)
+          
+      if raca_filter is not None:
+            if raca_filter == '14':
+                raca_filter = Raca.objects.all()
+            else:
+                pets = pets.filter(raca__id=raca_filter)
+                raca_filter = Raca.objects.get(id=raca_filter)
+      else:
+        raca_filter = None
 
       return render(request, 'listar_pets.html', {'pets': pets, 'racas': racas, 'cidade': cidade, 'raca_filter': raca_filter})
     
