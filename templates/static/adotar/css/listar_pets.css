@@ -1,4 +1,4 @@
-.btn-custom-secondary{
+.btn-custom-secondary {
   background-color: #762D77;
   border: none;
   box-shadow: 2px 2px 5px 1px rgb(108, 108, 108);
@@ -9,23 +9,23 @@
 
 }
 
-.span-bold{
+.span-bold {
   font-weight: bold;
   font-size: 30px;
 }
 
-.span-bold2{
+.span-bold2 {
   font-weight: bold;
   font-size: 20px;
 }
 
-.badge-lg{
+.badge-lg {
   font-size: 20px;
   margin-top: 10px;
 }
 
-.bg-side-plataforma{
-  background-color: #391D34;
+.bg-side-plataforma {
+  background-color: #D57C48;
   color: white;
 }
 
