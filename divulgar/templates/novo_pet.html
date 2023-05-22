@@ -23,40 +23,41 @@
         <h2>AdotsPets</h2>
         <hr>
         <ul class="list-group list-group-flush" >
-          <li class="list-group-item" 
-          style="background-color: #391D34; color: #fff; font-family: Montserrat, sans-serif; margin-bottom: 20px; margin-top: 20px; ">
+          <li class="list-group-item btn-criar-pet">
               <a class="nav-link" href="{% url 'novo_pet' %}">
                   Criar novo Pet
               </a>
           </li>
-          <li class="list-group-item"
-          style="background-color: #391D34; color: #fff; font-family: Montserrat, sans-serif; margin-bottom: 20px; margin-top: 20px; ">
-              <a class="nav-link" href="{% url 'seus_pets' %}">
-                  Gerenciar seus Pets
-              </a>
-          </li>
-          <li class="list-group-item"
-          style="background-color: #391D34; color: #fff; font-family: Montserrat, sans-serif; margin-bottom: 20px; margin-top: 20px; ">
-              <a class="nav-link" href="{% url 'dashboard'%}">
-                  Meus Dashboards
-              </a>
-          </li>
-          <li class="list-group-item"
-          style="background-color: #391D34; color: #fff; font-family: Montserrat, sans-serif; margin-bottom: 20px; margin-top: 20px; ">
-              <a class="nav-link" href="{% url 'dashboard'%}">
-                  Dashbaords Gerais
-              </a>
-          </li>
-        </ul>
-        <hr>
-        <li class="list-group-item"
-          style="background-color: #391D34; color: #fff; font-family: Montserrat, sans-serif; margin-bottom: 20px; margin-top: 20px; ">
+
+          <li class="list-group-item btn-criar-pet">
               <a class="nav-link" href="{% url 'listar_pets'%}">
                   Lista de Pets
               </a>
           </li>
+
+          <li class="list-group-item btn-criar-pet">
+            <a class="nav-link" href="{% url 'seus_pets' %}">
+              Gerenciar seus Pets
+            </a>
+          </li>
+
+          <li class="list-group-item btn-criar-pet">
+            <a class="nav-link" href="{% url 'dashboard'%}">
+              Meus Dashboards
+            </a>
+          </li>
+          
+          <li class="list-group-item btn-criar-pet">
+              <a class="nav-link" href="{% url 'dashboard'%}">
+                  Dashboards Gerais
+              </a>
+          </li>
+          
+        </ul>
+        <hr>
+        
         <li class="list-group-item"
-          style="background-color: #391D34; color: #fff; font-family: Montserrat, sans-serif; margin-bottom: 20px; margin-top: 20px; ">
+          style="background-color: #ff0541; color: #fff; box-shadow: 2px 2px 5px 1px rgb(108, 108, 108); font-family: Montserrat, sans-serif; margin-bottom: 20px; margin-top: 20px; border-radius: 5px; ">
               <a class="nav-link" href="{% url 'exit'%}">
                   Logout
               </a>
@@ -134,7 +135,22 @@
 
   </div>
 
-
+  <style>
+    .btn-criar-pet {
+        background-color: #67c9cb;
+        color: #000;
+        font-family: Montserrat, sans-serif;
+        box-shadow: 2px 2px 5px 1px rgb(108, 108, 108);
+        margin-bottom: 20px;
+        margin-top: 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .btn-criar-pet:hover {
+        background-color: #4a9b9d;
+    }
+    </style>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
