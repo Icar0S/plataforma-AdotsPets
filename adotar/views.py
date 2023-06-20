@@ -11,13 +11,19 @@ def listar_pets(request):
     if request.method == "GET":
       pets = Pet.objects.filter(status="P")
       racas = Raca.objects.all()
-
+      
+      sexo = request.GET.get('sexo')
       cidade = request.GET.get('cidade')
       raca_filter = request.GET.get('raca', None)
+      
+      if sexo:
+          pets = pets.filter(sexo__icontains=sexo)
+          raca_filter = None
 
       if cidade:
           pets = pets.filter(cidade__icontains=cidade)
-          
+          raca_filter = None
+    
       if raca_filter is not None:
             if raca_filter == '14':
                 pets = Pet.objects.filter()
@@ -28,7 +34,7 @@ def listar_pets(request):
       else:
         raca_filter = None
 
-      return render(request, 'listar_pets.html', {'pets': pets, 'racas': racas, 'cidade': cidade, 'raca_filter': raca_filter})
+      return render(request, 'listar_pets.html', {'pets': pets, 'racas': racas, 'sexo':sexo, 'cidade': cidade, 'raca_filter': raca_filter})
     
 def pedido_adocao(request, id_pet):
     pet = Pet.objects.filter(id=id_pet).filter(status="P")
