@@ -20,6 +20,7 @@ def listar_pets(request):
           
       if raca_filter is not None:
             if raca_filter == '14':
+                pets = Pet.objects.filter()
                 raca_filter = Raca.objects.all()
             else:
                 pets = pets.filter(raca__id=raca_filter)

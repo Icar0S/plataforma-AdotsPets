@@ -80,15 +80,33 @@
             <hr>
             <form action="{% url 'listar_pets' %}" method="GET">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
+                  <input type="text" placeholder="Sexo..." value="{% if sexo %}{{sexo}}{% endif %}" name="sexo"
+                    class="form-control">
+                </div>
+                <div class="col-md-4">
                   <input type="text" placeholder="Cidade..." value="{% if cidade %}{{cidade}}{% endif %}" name="cidade"
                     class="form-control">
                 </div>
-
+                
                 <div class="col-md-4">
-                  <select class="form-select" name="raca">
+                  <select class="form-select" name="raca" >
+                    {% if raca_filter == raca.14 %} 
+                      <option value="{{ raca.id }}" disabled selected>Todas</option>
+                    {% endif %}
+
+                    {% if raca_filter %}
+                      <option value="0" disabled >
+                        {{ raca_filter }}
+                      </option>
+                    {% endif %}
+                    
                     {% for raca in racas %}
-                    <option value="{{raca.id}}">{{raca}}</option>
+                      {% if forloop.last and not raca_filter %}
+                        <option value="{{ raca.id }}" selected>{{ raca }}</option>
+                      {% else %}
+                        <option value="{{ raca.id }}" {% if raca.id == raca_filter.id %}selected{% endif %}>{{ raca }}</option>
+                      {% endif %}
                     {% endfor %}
                   </select>
                 </div>

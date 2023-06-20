@@ -14,7 +14,8 @@ def novo_pet(request):
     if request.method == "GET":
       tags = Tag.objects.all()
       racas = Raca.objects.all()
-      return render(request, 'novo_pet.html', {'tags':tags, 'racas':racas})
+      sexos = Pet.choices_sexo
+      return render(request, 'novo_pet.html', {'tags':tags, 'racas':racas, 'sexos':sexos})
     elif request.method == "POST":
         foto = request.FILES.get('foto')
         nome = request.POST.get('nome')
@@ -25,6 +26,7 @@ def novo_pet(request):
         #capturando mais de uma opção (getlist):
         tags = request.POST.getlist('tags')
         raca = request.POST.get('raca')
+        sexo = request.POST.get('sexo')
 
         #TODO: Validar dados
 
@@ -37,6 +39,7 @@ def novo_pet(request):
             cidade=cidade,
             telefone=telefone,
             raca_id=raca,
+            sexo_id=sexo,
         )
 
         pet.save()
@@ -49,6 +52,7 @@ def novo_pet(request):
         
         tags = Tag.objects.all()
         racas = Raca.objects.all()
+        sexos = Pet.choices_sexo
         messages.add_message(request, constants.SUCCESS, 'Novo pet cadastrado')
         return redirect('/divulgar/seus_pets')
         #return render(request, 'novo_pet.html', {'tags': tags, 'racas': racas})
