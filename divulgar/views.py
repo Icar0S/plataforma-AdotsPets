@@ -39,7 +39,7 @@ def novo_pet(request):
             cidade=cidade,
             telefone=telefone,
             raca_id=raca,
-            sexo_id=sexo,
+            sexo=sexo,
         )
 
         pet.save()
